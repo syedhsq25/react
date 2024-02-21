@@ -1,12 +1,26 @@
 import React from "react";
 
-function Cards(){
-    return(
+
+function Cards() {
+
+
+    const data = [{ left: "black" }, { middle: "blue" }, { right: "pink" }];
+
+
+    return (
         <>
-        
-  <div class="column" style="background-color:#aaa;">Column</div>
-  </>
+
+            {
+                data.map((ele, index) => (
+
+                    <div key={index} className={Object.keys(ele)[0]} style={{ backgroundColor: Object.values(ele)[0] }}>Column</div >
+
+                ))
+            }
+
+        </>
 
 
     )
 }
+export default Cards;

@@ -1,10 +1,20 @@
 import React from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Cards from "./components/Cards"
+import Footer from "./components/Footer";
 function App() {
 
     return (
         <>
-            <center> <span  > <h1>hello</h1></span> <h1>world {1 + 1}</h1>
-            </center>
+            <Header />
+            <div className="grid-container">
+                <div className="header">
+                    <h2>Header</h2>
+                </div>
+                <Cards />
+                <Footer />
+            </div>
         </>)
 }
 export default App;
