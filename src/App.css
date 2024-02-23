@@ -1,7 +1,8 @@
 table,tbody,tr,td{
 align-content: center;
-background-color: cornsilk;
-border:2px solid brown;
+background-color:darkslategrey;
+border:2px solid orangered;
+color:beige
 }
 th{
   background-color: bisque;

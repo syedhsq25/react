@@ -45,10 +45,14 @@ function App() {
           <th>title</th>
           <th>completed</th></thead>
           <tbody>
-            {data.map((ele, index) => (
+            {data.map(ele => (
 
-              <tr key={index} className={Object.keys(ele)[0]} style={{ backgroundColor: Object.values(ele)[0] }}></tr >
-
+              <tr>
+                <td>{ele.userId}</td>
+                <td>{ele.id}</td>
+                <td>{ele.title}</td>
+                <td>{ele.completed ? "true" : "false"}</td>
+              </tr>
             ))}
           </tbody>
         </table></center>
