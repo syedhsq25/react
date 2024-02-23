@@ -1,0 +1,14 @@
+table,tbody,tr,td{
+align-content: center;
+background-color: cornsilk;
+border:2px solid brown;
+}
+th{
+  background-color: bisque;
+  border:2px solid orangered;
+  color:red;
+padding: 20px;
+
+margin:10px;
+text-align: center;
+}
