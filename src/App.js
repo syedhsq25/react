@@ -14,10 +14,12 @@ function App() {
 
     }
     catch (error) {
-      console.log(console.error());
+      console.log(error);
     };
   }
-
+  const name = ['hajdba', 'h', 'h'];
+  const [a, c, b] = name;
+  console.log(name)
 
   const [data, setData] = useState([]);
 
@@ -41,7 +43,7 @@ function App() {
                 <td>{ele.id}</td>
                 <td>{ele.userId}</td>
                 <td>{ele.title}</td>
-                <td>{ele.completed ? "true" : "false"}</td>
+                <td>{ele.completed ? "false" : " "}</td>
               </tr>
             ))}
           </tbody>
