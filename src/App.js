@@ -1,54 +1,50 @@
 
 import './App.css';
+import axios from "axios"
+import { useState } from "react";
 
 function App() {
+  const getData = async () => {
 
-  const data = [
-    {
-      "userId": 1,
-      "id": 1,
-      "title": "delectus aut autem",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 2,
-      "title": "quis ut nam facilis et officia qui",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 3,
-      "title": "fugiat veniam minus",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 4,
-      "title": "et porro tempora",
-      "completed": true
-    },
-    {
-      "userId": 1,
-      "id": 5,
-      "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-      "completed": false
-    }]
+    try {
+
+      const res = await axios.get("https://jsonplaceholder.typicode.com/todos"
+      );
+      setData(res.data)
+
+    }
+    catch (error) {
+      console.log(error);
+    };
+  }
+  const name = ['hajdba', 'h', 'h'];
+  const [a, c, b] = name;
+  console.log(name)
+
+  const [data, setData] = useState([]);
+
   return (
 
     <>
       <center>
-        <button>Task Status</button>
+        <button onClick={getData}>Load Data</button>
         <table><thead>
-          <th>users</th>
-          <th>id</th>
-          <th>title</th>
-          <th>completed</th></thead>
+          <tr>
+            <th >id</th>
+            <th>user id</th>
+            <th>title</th>
+            <th>task status</th></tr>
+        </thead>
           <tbody>
-            {data.map((ele, index) => (
+            {data.map(ele => (
 
-              <tr key={index} className={Object.keys(ele)[0]} style={{ backgroundColor: Object.values(ele)[0] }}></tr >
+              <tr key={ele.id}>
 
+                <td>{ele.id}</td>
+                <td>{ele.userId}</td>
+                <td>{ele.title}</td>
+                <td>{ele.completed ? "false" : " "}</td>
+              </tr>
             ))}
           </tbody>
         </table></center>

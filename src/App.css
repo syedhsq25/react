@@ -1,7 +1,12 @@
+button{
+  padding:10px;
+  margin:50px;
+}
 table,tbody,tr,td{
 align-content: center;
-background-color: cornsilk;
-border:2px solid brown;
+background-color:white;
+border:2px solid orangered;
+color:darkcyan
 }
 th{
   background-color: bisque;
