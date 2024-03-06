@@ -1,33 +1,35 @@
 
 import './App.css';
 import axios from "axios"
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 function App() {
-  const getData = async () => {
 
-    try {
+  useEffect(() => {
+    const getData = async () => {
 
-      const res = await axios.get("https://jsonplaceholder.typicode.com/todos"
-      );
-      setData(res.data)
+      try {
 
+        const res = await axios.get("https://jsonplaceholder.typicode.com/todos"
+        );
+        setData(res.data)
+
+      }
+      catch (error) {
+        console.log(error);
+      };
     }
-    catch (error) {
-      console.log(error);
-    };
-  }
-  const name = ['hajdba', 'h', 'h'];
-  const [a, c, b] = name;
-  console.log(name)
+    getData();
+  }, [])
+
+
+
 
   const [data, setData] = useState([]);
-
   return (
 
     <>
       <center>
-        <button onClick={getData}>Load Data</button>
+        <button >filter todos</button>
         <table><thead>
           <tr>
             <th >id</th>
