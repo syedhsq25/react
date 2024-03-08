@@ -1,33 +1,49 @@
 
 import './App.css';
 import axios from "axios"
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 function App() {
-  const getData = async () => {
+  useEffect(() => {
+    const getData = async () => {
 
-    try {
+      try {
 
-      const res = await axios.get("https://jsonplaceholder.typicode.com/todos"
-      );
-      setData(res.data)
+        const res = await axios.get("https://jsonplaceholder.typicode.com/todos"
+        );
+        setData(res.data);
+        setTotalData(res.data);
+
+      }
+      catch (error) {
+        console.log(error);
+      };
+    }
+    getData();
+  }, [])
+
+  const [completed, setCompleted] = useState(true);
+  const [totalData, setTotalData] = useState([]);
+  const [data, setData] = useState([]);
+  const filterTodos = () => {
+    if (completed) {
+      const filteredData = totalData.filter(ele => ele.completed);
+      setData(filteredData);
+
+    } else {
+      const filteredData = totalData.filter(ele => !ele.completed);
+      setData(filteredData);
 
     }
-    catch (error) {
-      console.log(error);
-    };
-  }
-  const name = ['hajdba', 'h', 'h'];
-  const [a, c, b] = name;
-  console.log(name)
+    setCompleted(!completed);
 
-  const [data, setData] = useState([]);
+  }
+
 
   return (
 
     <>
       <center>
-        <button onClick={getData}>Load Data</button>
+        <button onClick={filterTodos}>Load Data</button>
         <table><thead>
           <tr>
             <th >id</th>
@@ -43,7 +59,7 @@ function App() {
                 <td>{ele.id}</td>
                 <td>{ele.userId}</td>
                 <td>{ele.title}</td>
-                <td>{ele.completed ? "false" : " "}</td>
+                <td>{ele.completed ? "false" : "true "}</td>
               </tr>
             ))}
           </tbody>
