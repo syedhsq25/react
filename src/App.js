@@ -7,6 +7,7 @@ function App() {
   useEffect(() => {
     const getData = async () => {
 
+
       try {
 
         const res = await axios.get("https://jsonplaceholder.typicode.com/todos"
@@ -18,6 +19,7 @@ function App() {
         console.log(error);
       };
     }
+    getData();
   }, [])
 
 
