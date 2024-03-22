@@ -1,10 +1,12 @@
 
 import './App.css';
-import axios from "axios"
-import { useState, useEffect } from "react";
+import axios, { getAdapter } from "axios"
+import { useState, useEffect, createElement } from "react";
 function App() {
-
+  var x = new Date();
+  console.log(x)
   useEffect(() => {
+
     const getData = async () => {
 
 
@@ -28,29 +30,28 @@ function App() {
   const [data, setData] = useState([]);
   return (
 
-    <>
-      <center>
-        <button >filter todos</button>
-        <table><thead>
-          <tr>
-            <th >id</th>
-            <th>user id</th>
-            <th>title</th>
-            <th>task status</th></tr>
-        </thead>
-          <tbody>
-            {data.map(ele => (
+    <><center>
+      <button >filter todos</button>
+      <table><thead>
+        <tr>
+          <th >id</th>
+          <th>user id</th>
+          <th>title</th>
+          <th>task status</th></tr>
+      </thead>
+        <tbody>
+          {data.map(ele => (
 
-              <tr key={ele.id}>
+            <tr key={ele.id}>
 
-                <td>{ele.id}</td>
-                <td>{ele.userId}</td>
-                <td>{ele.title}</td>
-                <td>{ele.completed ? "false" : " "}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table></center>
+              <td>{ele.id}</td>
+              <td>{ele.userId}</td>
+              <td>{ele.title}</td>
+              <td>{ele.completed ? "false" : " "}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table></center>
     </>
   )
 }
