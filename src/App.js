@@ -5,6 +5,10 @@ import { useState, useEffect, createElement } from "react";
 function App() {
   var x = new Date();
   console.log(x)
+
+  const [splate, getSplate] = useState(() => {
+    console.log("hello")
+  })
   useEffect(() => {
 
     const getData = async () => {
