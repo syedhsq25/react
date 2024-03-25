@@ -1,14 +1,10 @@
 
 import './App.css';
-import axios, { getAdapter } from "axios"
-import { useState, useEffect, createElement } from "react";
+import axios from "axios"
+import { useState, useEffect } from "react";
 function App() {
-  var x = new Date();
-  console.log(x)
 
-  const [splate, getSplate] = useState(() => {
-    console.log("hello")
-  })
+
   useEffect(() => {
 
     const getData = async () => {
@@ -25,13 +21,15 @@ function App() {
         console.log(error);
       };
     }
-    getData();
-  }, [])
+    getData()
+      , []
+  })
 
 
 
 
   const [data, setData] = useState([]);
+
   return (
 
     <><center>
@@ -55,8 +53,8 @@ function App() {
             </tr>
           ))}
         </tbody>
-      </table></center>
+      </table></center >
     </>
   )
 }
-export default App
+export default App;
